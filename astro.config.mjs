@@ -5,11 +5,15 @@ import tailwindcss from '@tailwindcss/vite';
 
 import react from '@astrojs/react';
 
+import sitemap from '@astrojs/sitemap';
+
 // https://astro.build/config
 export default defineConfig({
+  // Update to the real production domain once registered (see content gaps).
+  site: 'https://victoremporium.com',
   vite: {
     plugins: [tailwindcss()]
   },
 
-  integrations: [react()]
+  integrations: [react(), sitemap()]
 });

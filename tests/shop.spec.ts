@@ -24,8 +24,8 @@ test.describe('Shop page', () => {
     const errors: string[] = [];
     page.on('pageerror', e => errors.push(e.message));
     page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
-    await page.reload();
-    await page.waitForLoadState('networkidle');
+    await page.reload({ waitUntil: 'networkidle' });
+    await page.waitForTimeout(500);
     expect(errors).toEqual([]);
   });
 });
