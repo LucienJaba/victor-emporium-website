@@ -6,8 +6,14 @@ interface Props {
 const { poster = asset('/video/emporium-poster.webp') } = Astro.props;
 ---
 <section class="relative w-full h-[70vh] min-h-[480px] overflow-hidden bg-night">
+  <img
+    src={asset('/images/storefront-landscape.webp')}
+    alt=""
+    aria-hidden="true"
+    class="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-60"
+  />
   <video
-    class="absolute inset-0 w-full h-full object-cover"
+    class="absolute inset-0 w-full h-full object-contain"
     autoplay
     muted
     loop
@@ -19,8 +25,11 @@ const { poster = asset('/video/emporium-poster.webp') } = Astro.props;
   >
     <source src={asset('/video/emporium-exterior.mp4')} type="video/mp4" />
   </video>
-  <div class="absolute inset-0 bg-gradient-to-b from-night/40 via-night/50 to-night/95"></div>
-  <div class="relative z-10 h-full flex flex-col items-center justify-end pb-20 text-center text-cream container-prose [text-shadow:_0_2px_12px_rgb(0_0_0_/_0.65)]">
+  <div class="absolute inset-0 bg-gradient-to-b from-night/30 via-transparent to-night/80"></div>
+  <div
+    class="relative z-10 h-full flex flex-col items-center justify-end pb-12 text-center text-cream container-prose [text-shadow:_0_2px_18px_rgb(0_0_0_/_0.9),_0_0_4px_rgb(0_0_0_/_0.8)]"
+    style="-webkit-text-stroke: 0.75px rgba(0,0,0,0.55);"
+  >
     <p class="font-accent italic text-base tracking-wide text-cream">Est. 1950</p>
     <h1 class="font-display text-5xl md:text-7xl mt-2 leading-none">Victor Emporium</h1>
     <p class="mt-6 text-lg md:text-xl text-cream max-w-xl">
