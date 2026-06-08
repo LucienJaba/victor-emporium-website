@@ -2,7 +2,7 @@
 interface Props {
   poster?: string;
 }
-const { poster = '/video/emporium-poster.jpg' } = Astro.props;
+const { poster = '/video/emporium-poster.webp' } = Astro.props;
 ---
 <section class="relative w-full h-[90vh] min-h-[600px] overflow-hidden bg-night">
   <video
@@ -11,10 +11,11 @@ const { poster = '/video/emporium-poster.jpg' } = Astro.props;
     muted
     loop
     playsinline
-    preload="metadata"
+    preload="none"
     poster={poster}
+    width="608"
+    height="1080"
   >
-    <source src="/video/emporium-exterior.webm" type="video/webm" />
     <source src="/video/emporium-exterior.mp4" type="video/mp4" />
   </video>
   <div class="absolute inset-0 bg-gradient-to-b from-night/30 via-night/20 to-night/70"></div>
