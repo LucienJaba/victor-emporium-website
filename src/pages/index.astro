@@ -1,9 +1,76 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroVideo from '../components/HeroVideo.astro';
+
+const tiles = [
+  { title: 'Soda Fountain', href: '/menu', body: 'Real ice cream. Real malts. Famous huckleberry milkshakes.' },
+  { title: 'General Store', href: '/shop', body: 'Local goods, gifts, sundries — the way a Main Street store should be.' },
+  { title: 'Apparel', href: '/shop#apparel', body: 'Shirts, hats, hoodies. Wear the Valley.' },
+  { title: 'Local Goods', href: '/shop#local', body: 'Jams, candy, and treasures from the people next door.' },
+];
 ---
 <BaseLayout title="Victor Emporium">
+  <HeroVideo />
+
   <section class="container-prose py-24 text-center">
-    <h1 class="text-5xl font-display">Coming soon</h1>
-    <p class="mt-4 text-ink/70">Hero coming in the next task.</p>
+    <p class="font-accent italic text-emporium-red text-lg">A Main Street institution</p>
+    <h2 class="font-display text-4xl md:text-5xl mt-3">Seventy-five years on the same corner.</h2>
+    <p class="mt-6 text-lg text-ink/80 leading-relaxed">
+      Since 1950, the Emporium has been Victor's gathering place — first as the Victor Drug Company, then the Egbert Trading Post, and the Victor Emporium ever since. Through seven owners, the soda fountain has never stopped scooping.
+    </p>
+  </section>
+
+  <section class="container-gallery pb-24">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {tiles.map(t => (
+        <a href={t.href} class="group block border border-ink/10 bg-cream hover:border-emporium-red transition-colors p-8">
+          <h3 class="font-display text-2xl">{t.title}</h3>
+          <p class="mt-3 text-sm text-ink/70 leading-relaxed">{t.body}</p>
+          <span class="mt-6 inline-block text-xs uppercase tracking-widest text-emporium-red group-hover:translate-x-1 transition-transform">Explore →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-wood text-cream py-24">
+    <div class="container-prose text-center">
+      <p class="font-accent italic text-gold text-lg">From the history</p>
+      <blockquote class="font-display text-3xl md:text-4xl mt-6 leading-snug">
+        "They struck an informal deal and took over at the end of 1999, sealing it with a handshake and signing the offer on the hood of a truck at a boat ramp in Jackson."
+      </blockquote>
+      <p class="mt-6 text-sm uppercase tracking-widest text-cream/70">On the Keeley &amp; Ferris era, 1999–2025</p>
+      <a href="/story" class="mt-10 inline-block border border-cream/40 text-cream px-8 py-3 text-sm uppercase tracking-widest hover:bg-cream hover:text-wood transition-colors">75 years on Main Street →</a>
+    </div>
+  </section>
+
+  <section class="container-gallery py-24">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="font-accent italic text-emporium-red text-lg">Famous for</p>
+        <h2 class="font-display text-4xl md:text-5xl mt-3">The Huckleberry Milkshake.</h2>
+        <p class="mt-6 text-lg text-ink/80 leading-relaxed">
+          Wild huckleberries, real ice cream, hand-spun at the fountain. The reason locals stop in most mornings and the reason tourists drive miles out of their way.
+        </p>
+        <a href="/menu" class="mt-8 inline-block text-emporium-red hover:underline">See the full menu →</a>
+      </div>
+      <div class="aspect-[4/5] bg-ink/5">
+        <img
+          src="/images/milkshake-sign-portrait.webp"
+          alt="The hand-painted milkshake sign at the front of the Victor Emporium"
+          class="w-full h-full object-cover"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-emporium-red text-cream py-16">
+    <div class="container-gallery flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+      <div>
+        <p class="font-accent italic text-cream/80">Stop in</p>
+        <p class="font-display text-3xl">Open year-round on Main Street.</p>
+      </div>
+      <a href="/visit" class="inline-block bg-cream text-emporium-red px-8 py-3 text-sm uppercase tracking-widest hover:bg-cream/90 transition-colors">Hours &amp; directions →</a>
+    </div>
   </section>
 </BaseLayout>
