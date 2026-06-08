@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { StoryTimeline } from '../components/StoryTimeline';
+---
+<BaseLayout title="Our Story · Victor Emporium" description="Seventy-five years on Main Street — the full history of the Victor Emporium, told through its seven owners from 1950 to today.">
+  <header class="relative h-[70vh] min-h-[480px] bg-night text-cream overflow-hidden">
+    <img
+      src="/images/storefront-landscape.webp"
+      alt="The Victor Emporium storefront at blue hour"
+      class="absolute inset-0 w-full h-full object-cover opacity-50"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-night/40 via-night/30 to-night/80"></div>
+    <div class="relative h-full container-prose flex flex-col justify-end pb-20 text-center">
+      <p class="font-accent italic text-gold text-lg">A Main Street story</p>
+      <h1 class="font-display text-5xl md:text-7xl mt-3 leading-none">75 Years on Main Street</h1>
+      <p class="mt-6 text-lg text-cream/80 max-w-2xl mx-auto">
+        Seven owners. One soda fountain. A small Idaho town's living room since 1950.
+      </p>
+    </div>
+  </header>
+
+  <StoryTimeline client:load />
+
+  <section class="bg-emporium-red text-cream py-24">
+    <div class="container-prose text-center">
+      <p class="font-accent italic text-cream/80 text-lg">Chapter Eight</p>
+      <h2 class="font-display text-4xl md:text-5xl mt-3">The next chapter is being written.</h2>
+      <p class="mt-6 text-lg text-cream/90">Come be part of it.</p>
+      <a href="/visit" class="mt-10 inline-block bg-cream text-emporium-red px-8 py-3 text-sm uppercase tracking-widest hover:bg-cream/90 transition-colors">Plan your visit →</a>
+    </div>
+  </section>
+</BaseLayout>
