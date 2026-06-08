@@ -19,11 +19,11 @@ const { poster = asset('/video/emporium-poster.webp') } = Astro.props;
   >
     <source src={asset('/video/emporium-exterior.mp4')} type="video/mp4" />
   </video>
-  <div class="absolute inset-0 bg-gradient-to-b from-night/30 via-night/20 to-night/70"></div>
-  <div class="relative z-10 h-full flex flex-col items-center justify-end pb-20 text-center text-cream container-prose">
-    <p class="font-accent italic text-base tracking-wide text-cream/80">Est. 1950</p>
+  <div class="absolute inset-0 bg-gradient-to-b from-night/40 via-night/50 to-night/95"></div>
+  <div class="relative z-10 h-full flex flex-col items-center justify-end pb-20 text-center text-cream container-prose [text-shadow:_0_2px_12px_rgb(0_0_0_/_0.65)]">
+    <p class="font-accent italic text-base tracking-wide text-cream">Est. 1950</p>
     <h1 class="font-display text-5xl md:text-7xl mt-2 leading-none">Victor Emporium</h1>
-    <p class="mt-6 text-lg md:text-xl text-cream/90 max-w-xl">
+    <p class="mt-6 text-lg md:text-xl text-cream max-w-xl">
       Soda fountain. General store. Victor, Idaho.
     </p>
     <a href={asset('/visit')} class="mt-10 inline-block bg-emporium-red text-cream px-8 py-3 text-sm uppercase tracking-widest hover:bg-emporium-red/90 transition-colors">
