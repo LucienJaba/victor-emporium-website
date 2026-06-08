@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Shop page', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/shop');
+    await page.goto('./shop');
   });
 
   test('renders hero', async ({ page }) => {
@@ -16,7 +16,7 @@ test.describe('Shop page', () => {
   });
 
   test('category anchors work', async ({ page }) => {
-    await page.goto('/shop#fishing');
+    await page.goto('./shop#fishing');
     await expect(page.locator('#fishing')).toBeInViewport();
   });
 

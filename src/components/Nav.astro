@@ -1,4 +1,5 @@
 ---
+import { asset } from '../utils/asset';
 const links = [
   { href: '/', label: 'Home' },
   { href: '/story', label: 'Our Story' },
@@ -7,20 +8,21 @@ const links = [
   { href: '/visit', label: 'Visit' },
 ];
 const pathname = Astro.url.pathname;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 <nav class="sticky top-0 z-40 bg-cream/90 backdrop-blur border-b border-ink/10">
   <div class="container-gallery flex items-center justify-between py-4">
-    <a href="/" class="font-display text-xl tracking-tight">
+    <a href={asset('/')} class="font-display text-xl tracking-tight">
       Victor Emporium <span class="font-accent italic text-sm text-ink/75">Est. 1950</span>
     </a>
     <ul class="hidden md:flex gap-8 text-sm uppercase tracking-widest">
       {links.map(l => (
         <li>
           <a
-            href={l.href}
+            href={asset(l.href)}
             class:list={[
               'hover:text-emporium-red transition-colors',
-              pathname === l.href && 'text-emporium-red'
+              pathname === `${base}${l.href}`.replace(/\/$/, '') + (l.href === '/' ? '/' : '') && 'text-emporium-red'
             ]}
           >{l.label}</a>
         </li>

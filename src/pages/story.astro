@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { StoryTimeline } from '../components/StoryTimeline';
+import { asset } from '../utils/asset';
 ---
 <BaseLayout title="Our Story · Victor Emporium" description="Seventy-five years on Main Street — the full history of the Victor Emporium, told through its seven owners from 1950 to today.">
   <header class="relative h-[70vh] min-h-[480px] bg-night text-cream overflow-hidden">
     <img
-      src="/images/storefront-landscape.webp"
+      src={asset('/images/storefront-landscape.webp')}
       alt="The Victor Emporium storefront at blue hour"
       class="absolute inset-0 w-full h-full object-cover opacity-50"
     />
@@ -26,7 +27,7 @@ import { StoryTimeline } from '../components/StoryTimeline';
       <p class="font-accent italic text-cream/80 text-lg">Chapter Eight</p>
       <h2 class="font-display text-4xl md:text-5xl mt-3">The next chapter is being written.</h2>
       <p class="mt-6 text-lg text-cream/90">Come be part of it.</p>
-      <a href="/visit" class="mt-10 inline-block bg-cream text-emporium-red px-8 py-3 text-sm uppercase tracking-widest hover:bg-cream/90 transition-colors">Plan your visit →</a>
+      <a href={asset('/visit')} class="mt-10 inline-block bg-cream text-emporium-red px-8 py-3 text-sm uppercase tracking-widest hover:bg-cream/90 transition-colors">Plan your visit →</a>
     </div>
   </section>
 </BaseLayout>

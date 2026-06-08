@@ -2,11 +2,11 @@ import { test } from '@playwright/test';
 import path from 'node:path';
 
 const pages = [
-  { path: '/', name: 'home' },
-  { path: '/story', name: 'story' },
-  { path: '/menu', name: 'menu' },
-  { path: '/shop', name: 'shop' },
-  { path: '/visit', name: 'visit' },
+  { path: './', name: 'home' },
+  { path: './story', name: 'story' },
+  { path: './menu', name: 'menu' },
+  { path: './shop', name: 'shop' },
+  { path: './visit', name: 'visit' },
 ];
 
 const outDir = path.join(import.meta.dirname, '..', 'screenshots');

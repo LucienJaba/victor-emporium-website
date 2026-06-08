@@ -1,12 +1,13 @@
 ---
 import type { MenuItem } from '../data/menu';
+import { asset } from '../utils/asset';
 interface Props { item: MenuItem; }
 const { item } = Astro.props;
 ---
 <article class="group border border-ink/10 bg-cream hover:border-emporium-red hover:-translate-y-1 transition-all duration-300">
   <div class="aspect-[4/3] overflow-hidden bg-ink/5">
     <img
-      src={item.illustration}
+      src={asset(item.illustration)}
       alt={`Illustration of ${item.name}`}
       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
       loading="lazy"

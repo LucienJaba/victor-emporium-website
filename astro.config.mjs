@@ -9,8 +9,9 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  // Update to the real production domain once registered (see content gaps).
-  site: 'https://victoremporium.com',
+  // Update site + base when a custom domain is registered.
+  site: 'https://lucienjaba.github.io',
+  base: '/victor-emporium-website',
   vite: {
     plugins: [tailwindcss()]
   },

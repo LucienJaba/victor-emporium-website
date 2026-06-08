@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { shopCategories } from '../data/shop';
+import { asset } from '../utils/asset';
 ---
 <BaseLayout title="Shop · Victor Emporium" description="Browse what we carry — apparel, souvenirs, local goods, fishing and outdoor gear, and gifts at the Victor Emporium.">
   <header class="bg-cream py-24 border-b border-ink/10">
@@ -24,7 +25,7 @@ import { shopCategories } from '../data/shop';
           <figure class="group">
             <div class="aspect-square bg-ink/5 overflow-hidden">
               <img
-                src={tile.image}
+                src={asset(tile.image)}
                 alt={tile.alt}
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
@@ -40,7 +41,7 @@ import { shopCategories } from '../data/shop';
   <section class="bg-emporium-red text-cream py-16">
     <div class="container-prose text-center">
       <p class="font-display text-3xl">Stop in to browse the full selection.</p>
-      <a href="/visit" class="mt-6 inline-block bg-cream text-emporium-red px-8 py-3 text-sm uppercase tracking-widest hover:bg-cream/90 transition-colors">Hours &amp; directions →</a>
+      <a href={asset('/visit')} class="mt-6 inline-block bg-cream text-emporium-red px-8 py-3 text-sm uppercase tracking-widest hover:bg-cream/90 transition-colors">Hours &amp; directions →</a>
     </div>
   </section>
 </BaseLayout>

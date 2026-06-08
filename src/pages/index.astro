@@ -1,12 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroVideo from '../components/HeroVideo.astro';
+import { asset } from '../utils/asset';
 
 const tiles = [
-  { title: 'Soda Fountain', href: '/menu', body: 'Real ice cream. Real malts. Famous huckleberry milkshakes.' },
-  { title: 'General Store', href: '/shop', body: 'Local goods, gifts, sundries — the way a Main Street store should be.' },
-  { title: 'Apparel', href: '/shop#apparel', body: 'Shirts, hats, hoodies. Wear the Valley.' },
-  { title: 'Local Goods', href: '/shop#local', body: 'Jams, candy, and treasures from the people next door.' },
+  { title: 'Soda Fountain', href: asset('/menu'), body: 'Real ice cream. Real malts. Famous huckleberry milkshakes.' },
+  { title: 'General Store', href: asset('/shop'), body: 'Local goods, gifts, sundries — the way a Main Street store should be.' },
+  { title: 'Apparel', href: asset('/shop#apparel'), body: 'Shirts, hats, hoodies. Wear the Valley.' },
+  { title: 'Local Goods', href: asset('/shop#local'), body: 'Jams, candy, and treasures from the people next door.' },
 ];
 ---
 <BaseLayout title="Victor Emporium">
@@ -39,7 +40,7 @@ const tiles = [
         "They struck an informal deal and took over at the end of 1999, sealing it with a handshake and signing the offer on the hood of a truck at a boat ramp in Jackson."
       </blockquote>
       <p class="mt-6 text-sm uppercase tracking-widest text-cream/70">On the Keeley &amp; Ferris era, 1999–2025</p>
-      <a href="/story" class="mt-10 inline-block border border-cream/40 text-cream px-8 py-3 text-sm uppercase tracking-widest hover:bg-cream hover:text-wood transition-colors">75 years on Main Street →</a>
+      <a href={asset('/story')} class="mt-10 inline-block border border-cream/40 text-cream px-8 py-3 text-sm uppercase tracking-widest hover:bg-cream hover:text-wood transition-colors">75 years on Main Street →</a>
     </div>
   </section>
 
@@ -51,11 +52,11 @@ const tiles = [
         <p class="mt-6 text-lg text-ink/80 leading-relaxed">
           Wild huckleberries, real ice cream, hand-spun at the fountain. The reason locals stop in most mornings and the reason tourists drive miles out of their way.
         </p>
-        <a href="/menu" class="mt-8 inline-block text-emporium-red hover:underline">See the full menu →</a>
+        <a href={asset('/menu')} class="mt-8 inline-block text-emporium-red hover:underline">See the full menu →</a>
       </div>
       <div class="aspect-[4/5] bg-ink/5">
         <img
-          src="/images/milkshake-sign-portrait.webp"
+          src={asset('/images/milkshake-sign-portrait.webp')}
           alt="The hand-painted milkshake sign at the front of the Victor Emporium"
           class="w-full h-full object-cover"
           loading="lazy"
@@ -70,7 +71,7 @@ const tiles = [
         <p class="font-accent italic text-cream">Stop in</p>
         <p class="font-display text-3xl">Open year-round on Main Street.</p>
       </div>
-      <a href="/visit" class="inline-block bg-cream text-emporium-red px-8 py-3 text-sm uppercase tracking-widest hover:bg-cream/90 transition-colors">Hours &amp; directions →</a>
+      <a href={asset('/visit')} class="inline-block bg-cream text-emporium-red px-8 py-3 text-sm uppercase tracking-widest hover:bg-cream/90 transition-colors">Hours &amp; directions →</a>
     </div>
   </section>
 </BaseLayout>

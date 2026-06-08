@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Story page', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/story');
+    await page.goto('./story');
   });
 
   test('renders the hero', async ({ page }) => {
@@ -25,7 +25,7 @@ test.describe('Story page', () => {
   test('closing CTA links to /visit', async ({ page }) => {
     const cta = page.getByRole('link', { name: /plan your visit/i }).last();
     await expect(cta).toBeVisible();
-    await expect(cta).toHaveAttribute('href', '/visit');
+    await expect(cta).toHaveAttribute('href', /\/visit$/);
   });
 
   test('no console errors', async ({ page }) => {

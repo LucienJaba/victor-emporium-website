@@ -2,11 +2,12 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import MenuCard from '../components/MenuCard.astro';
 import { menuSections, huckleberryFeature } from '../data/menu';
+import { asset } from '../utils/asset';
 ---
 <BaseLayout title="Menu · Victor Emporium" description="The Victor Emporium soda fountain menu — milkshakes, sundaes, sodas, espresso, and the famous huckleberry milkshake.">
   <header class="relative h-[60vh] min-h-[420px] bg-night text-cream overflow-hidden">
     <img
-      src="/images/milkshake-sign-portrait.webp"
+      src={asset('/images/milkshake-sign-portrait.webp')}
       alt="The hand-painted milkshake sign at the front of the Victor Emporium"
       class="absolute inset-0 w-full h-full object-cover opacity-70"
     />
@@ -22,7 +23,7 @@ import { menuSections, huckleberryFeature } from '../data/menu';
     <div class="grid md:grid-cols-2 gap-12 items-center bg-cream border border-emporium-red/30 p-8 md:p-12">
       <div class="aspect-[4/5] bg-ink/5 overflow-hidden">
         <img
-          src={huckleberryFeature.illustration}
+          src={asset(huckleberryFeature.illustration)}
           alt={`Illustration of ${huckleberryFeature.name}`}
           class="w-full h-full object-cover"
           loading="lazy"
@@ -51,7 +52,7 @@ import { menuSections, huckleberryFeature } from '../data/menu';
   <section class="bg-wood text-cream py-16">
     <div class="container-prose text-center">
       <p class="font-display text-2xl">Stop in for the full board.</p>
-      <a href="/visit" class="mt-6 inline-block border border-cream/40 text-cream px-8 py-3 text-sm uppercase tracking-widest hover:bg-cream hover:text-wood transition-colors">Hours &amp; directions →</a>
+      <a href={asset('/visit')} class="mt-6 inline-block border border-cream/40 text-cream px-8 py-3 text-sm uppercase tracking-widest hover:bg-cream hover:text-wood transition-colors">Hours &amp; directions →</a>
     </div>
   </section>
 </BaseLayout>

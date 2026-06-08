@@ -2,6 +2,7 @@
 import '../styles/globals.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import { asset } from '../utils/asset';
 
 interface Props {
   title: string;
@@ -18,8 +19,8 @@ const { title, description = 'Victor Emporium — soda fountain, general store, 
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/og-image.jpg" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:image" content={asset('/og-image.jpg')} />
+    <link rel="icon" type="image/svg+xml" href={asset('/favicon.svg')} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

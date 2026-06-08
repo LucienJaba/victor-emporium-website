@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import type { Owner } from '../data/ownership';
+import { asset } from '../utils/asset';
 
 type Props = { owner: Owner; index: number };
 
@@ -16,7 +17,7 @@ export function TimelinePanel({ owner, index }: Props) {
       <div className={`grid md:grid-cols-2 gap-12 items-center ${isReversed ? 'md:[&>*:first-child]:order-2' : ''}`}>
         <div className={owner.imageStyle === 'archival' ? 'sepia-[0.4] saturate-50' : ''}>
           <img
-            src={owner.imagePath}
+            src={asset(owner.imagePath)}
             alt={owner.imageAlt}
             className="w-full h-auto aspect-[4/3] object-cover"
             loading="lazy"
