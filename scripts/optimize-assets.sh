@@ -25,12 +25,12 @@ ffmpeg -y -i "$SRC_VID" \
 echo "→ Extracting video poster frame (1s in)..."
 ffmpeg -y -i "$SRC_VID" -ss 00:00:01 -vframes 1 -q:v 3 "$OUT_VID/emporium-poster.jpg"
 
-echo "→ Converting HEIC photos to WebP via sips + ffmpeg..."
+echo "→ Converting HEIC photos to WebP via sips + cwebp..."
 TMP=$(mktemp -d)
-sips -s format jpeg "$SRC_LAND" --out "$TMP/land.jpg" > /dev/null
-sips -s format jpeg "$SRC_PORT" --out "$TMP/port.jpg" > /dev/null
-ffmpeg -y -i "$TMP/land.jpg" -vf "scale=2400:-2" -q:v 85 "$OUT_IMG/storefront-landscape.webp"
-ffmpeg -y -i "$TMP/port.jpg" -vf "scale=1600:-2" -q:v 85 "$OUT_IMG/milkshake-sign-portrait.webp"
+sips -s format jpeg -Z 2400 "$SRC_LAND" --out "$TMP/land.jpg" > /dev/null
+sips -s format jpeg -Z 1600 "$SRC_PORT" --out "$TMP/port.jpg" > /dev/null
+cwebp -q 85 "$TMP/land.jpg" -o "$OUT_IMG/storefront-landscape.webp" 2>&1 | tail -1
+cwebp -q 85 "$TMP/port.jpg" -o "$OUT_IMG/milkshake-sign-portrait.webp" 2>&1 | tail -1
 rm -rf "$TMP"
 
 echo "✓ Asset optimization complete."

@@ -1,0 +1,30 @@
+---
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/story', label: 'Our Story' },
+  { href: '/menu', label: 'Menu' },
+  { href: '/shop', label: 'Shop' },
+  { href: '/visit', label: 'Visit' },
+];
+const pathname = Astro.url.pathname;
+---
+<nav class="sticky top-0 z-40 bg-cream/90 backdrop-blur border-b border-ink/10">
+  <div class="container-gallery flex items-center justify-between py-4">
+    <a href="/" class="font-display text-xl tracking-tight">
+      Victor Emporium <span class="font-accent italic text-sm text-ink/60">Est. 1950</span>
+    </a>
+    <ul class="hidden md:flex gap-8 text-sm uppercase tracking-widest">
+      {links.map(l => (
+        <li>
+          <a
+            href={l.href}
+            class:list={[
+              'hover:text-emporium-red transition-colors',
+              pathname === l.href && 'text-emporium-red'
+            ]}
+          >{l.label}</a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
