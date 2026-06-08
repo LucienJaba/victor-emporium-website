@@ -10,10 +10,10 @@ OUT_VID="$ROOT/public/video"
 OUT_IMG="$ROOT/public/images"
 mkdir -p "$OUT_VID" "$OUT_IMG"
 
-echo "→ Converting video to web mp4 (720p, h264 crf 28)..."
+echo "→ Converting video to web mp4 (1080p, h264 crf 22)..."
 ffmpeg -y -i "$SRC_VID" \
-  -vf "scale=-2:720" \
-  -c:v libx264 -preset slow -crf 28 -movflags +faststart \
+  -vf "scale=-2:1080" \
+  -c:v libx264 -preset slow -crf 22 -movflags +faststart \
   -an "$OUT_VID/emporium-exterior.mp4"
 
 echo "→ Extracting video poster frame (1s in)..."
