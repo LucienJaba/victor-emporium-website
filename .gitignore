@@ -31,3 +31,8 @@ pnpm-debug.log*
 
 # large source media (not deployed; optimized copies live in /public)
 assets/video/*.mov
+
+# playwright
+test-results/
+playwright-report/
+.playwright/
