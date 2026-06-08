@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { shopCategories } from '../data/shop';
+---
+<BaseLayout title="Shop · Victor Emporium" description="Browse what we carry — apparel, souvenirs, local goods, fishing and outdoor gear, and gifts at the Victor Emporium.">
+  <header class="bg-cream py-24 border-b border-ink/10">
+    <div class="container-prose text-center">
+      <p class="font-accent italic text-emporium-red text-lg">In the shop</p>
+      <h1 class="font-display text-5xl md:text-7xl mt-3">Souvenirs, goods, and gifts.</h1>
+      <p class="mt-6 text-lg text-ink/80">
+        Apparel, local food, fishing gear, and the small things you'll wish you'd grabbed when you get home.
+      </p>
+    </div>
+  </header>
+
+  {shopCategories.map(cat => (
+    <section id={cat.id} class="container-gallery py-20 border-b border-ink/10 last:border-b-0">
+      <div class="max-w-prose mx-auto text-center mb-10">
+        <h2 class="font-display text-4xl">{cat.title}</h2>
+        <p class="mt-3 text-ink/70">{cat.blurb}</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {cat.tiles.map(tile => (
+          <figure class="group">
+            <div class="aspect-square bg-ink/5 overflow-hidden">
+              <img
+                src={tile.image}
+                alt={tile.alt}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+            <figcaption class="mt-3 text-sm uppercase tracking-widest text-ink/70 text-center">{tile.label}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+  ))}
+
+  <section class="bg-emporium-red text-cream py-16">
+    <div class="container-prose text-center">
+      <p class="font-display text-3xl">Stop in to browse the full selection.</p>
+      <a href="/visit" class="mt-6 inline-block bg-cream text-emporium-red px-8 py-3 text-sm uppercase tracking-widest hover:bg-cream/90 transition-colors">Hours &amp; directions →</a>
+    </div>
+  </section>
+</BaseLayout>
