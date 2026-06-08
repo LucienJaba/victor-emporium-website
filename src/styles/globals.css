@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Libre+Caslon+Text:ital@1&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #FAF6EE;
+  --color-ink: #1B1B1B;
+  --color-emporium-red: #B7261F;
+  --color-gold: #D9A441;
+  --color-night: #0E2230;
+  --color-wood: #5C2E1A;
+
+  --font-display: "Recoleta", "Domaine Display", Georgia, serif;
+  --font-body: "Inter", "Söhne", system-ui, sans-serif;
+  --font-accent: "Libre Caslon Text", Georgia, serif;
+
+  --container-prose: 720px;
+  --container-gallery: 1280px;
+}
+
+/*
+ * Tailwind v4 ships a built-in `max-w-prose` utility hardcoded to 65ch.
+ * Override it so the design-token `--container-prose: 720px` wins.
+ */
+@layer utilities {
+  .max-w-prose {
+    max-width: var(--container-prose);
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-cream text-ink font-body antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .container-prose {
+    @apply max-w-prose mx-auto px-6;
+  }
+  .container-gallery {
+    @apply max-w-gallery mx-auto px-6;
+  }
+}
