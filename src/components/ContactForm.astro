@@ -1,43 +1,20 @@
 ---
-const WEB3FORMS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';
+import { visit } from '../data/visit';
 ---
-<form
-  action="https://api.web3forms.com/submit"
-  method="POST"
-  class="space-y-4"
->
-  <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
-  <input type="hidden" name="subject" value="Victor Emporium — new message" />
-  <input type="hidden" name="from_name" value="Victor Emporium Website" />
-  <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" />
-
-  <div class="grid sm:grid-cols-2 gap-4">
-    <label class="block">
-      <span class="text-xs uppercase tracking-widest text-ink/70">Name</span>
-      <input type="text" name="name" required class="mt-1 w-full border border-ink/20 bg-cream px-3 py-2 focus:outline-none focus:border-emporium-red" />
-    </label>
-    <label class="block">
-      <span class="text-xs uppercase tracking-widest text-ink/70">Email</span>
-      <input type="email" name="email" required class="mt-1 w-full border border-ink/20 bg-cream px-3 py-2 focus:outline-none focus:border-emporium-red" />
-    </label>
+<div class="border border-emporium-red/30 bg-cream p-8 text-center">
+  <p class="font-accent italic text-emporium-red text-lg">Form coming soon</p>
+  <p class="mt-4 text-ink/80 leading-relaxed">
+    The contact form will go live once we connect it to the Emporium's inbox. In the meantime, the best way to reach us is:
+  </p>
+  <div class="mt-6 space-y-2 text-lg">
+    <p>
+      <a href={`tel:${visit.phone.replace(/[^0-9]/g, '')}`} class="hover:text-emporium-red">{visit.phone}</a>
+    </p>
+    <p>
+      <a href={`mailto:${visit.email}`} class="hover:text-emporium-red">{visit.email}</a>
+    </p>
   </div>
-
-  <label class="block">
-    <span class="text-xs uppercase tracking-widest text-ink/70">Reason</span>
-    <select name="reason" required class="mt-1 w-full border border-ink/20 bg-cream px-3 py-2 focus:outline-none focus:border-emporium-red">
-      <option value="general">General</option>
-      <option value="jobs">Jobs (we'd love to meet you)</option>
-      <option value="wholesale">Wholesale or custom orders</option>
-      <option value="press">Press</option>
-    </select>
-  </label>
-
-  <label class="block">
-    <span class="text-xs uppercase tracking-widest text-ink/70">Message</span>
-    <textarea name="message" rows="5" required class="mt-1 w-full border border-ink/20 bg-cream px-3 py-2 focus:outline-none focus:border-emporium-red"></textarea>
-  </label>
-
-  <button type="submit" class="bg-emporium-red text-cream px-8 py-3 text-sm uppercase tracking-widest hover:bg-emporium-red/90 transition-colors">
-    Send message
-  </button>
-</form>
+  <p class="mt-6 text-xs uppercase tracking-widest text-ink/50">
+    [Phone &amp; email are placeholders pending Adam &amp; Lee's confirmation]
+  </p>
+</div>

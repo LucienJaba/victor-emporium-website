@@ -11,8 +11,8 @@ test.describe('Visit page', () => {
   });
 
   test('shows phone and email links', async ({ page }) => {
-    await expect(page.locator('a[href^="tel:"]')).toBeVisible();
-    await expect(page.locator('a[href^="mailto:"]')).toBeVisible();
+    await expect(page.locator('a[href^="tel:"]').first()).toBeVisible();
+    await expect(page.locator('a[href^="mailto:"]').first()).toBeVisible();
   });
 
   test('shows summer and winter hours', async ({ page }) => {
@@ -20,12 +20,10 @@ test.describe('Visit page', () => {
     await expect(page.getByText(/Winter hours/i)).toBeVisible();
   });
 
-  test('contact form has required fields and submit', async ({ page }) => {
-    await expect(page.locator('input[name="name"]')).toBeVisible();
-    await expect(page.locator('input[name="email"]')).toBeVisible();
-    await expect(page.locator('select[name="reason"]')).toBeVisible();
-    await expect(page.locator('textarea[name="message"]')).toBeVisible();
-    await expect(page.getByRole('button', { name: /send message/i })).toBeVisible();
+  test('contact placeholder shows phone and email', async ({ page }) => {
+    await expect(page.getByText(/form coming soon/i)).toBeVisible();
+    await expect(page.locator('a[href^="tel:"]').first()).toBeVisible();
+    await expect(page.locator('a[href^="mailto:"]').first()).toBeVisible();
   });
 
   test('map iframe loads', async ({ page }) => {
