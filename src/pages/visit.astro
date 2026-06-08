@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HoursBlock from '../components/HoursBlock.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { visit } from '../data/visit';
+
+const { coords, address, phone, email } = visit;
+const bbox = `${coords.lng - 0.005},${coords.lat - 0.005},${coords.lng + 0.005},${coords.lat + 0.005}`;
+const mapSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${coords.lat},${coords.lng}`;
+const directionsHref = `https://www.openstreetmap.org/?mlat=${coords.lat}&mlon=${coords.lng}#map=17/${coords.lat}/${coords.lng}`;
+---
+<BaseLayout title="Visit · Victor Emporium" description="Find Victor Emporium — hours, address, map, and how to get in touch about jobs, wholesale, or press.">
+  <header class="bg-cream py-20 border-b border-ink/10">
+    <div class="container-prose text-center">
+      <p class="font-accent italic text-emporium-red text-lg">Find us</p>
+      <h1 class="font-display text-5xl md:text-7xl mt-3">Visit the Emporium.</h1>
+      <p class="mt-6 text-lg text-ink/80">
+        {address.street}, {address.city}, {address.state} {address.zip}
+      </p>
+    </div>
+  </header>
+
+  <section class="container-gallery py-16">
+    <div class="grid md:grid-cols-5 gap-12 items-start">
+      <div class="md:col-span-3">
+        <iframe
+          src={mapSrc}
+          title="Map of Victor Emporium"
+          class="w-full aspect-[4/3] border border-ink/10"
+          loading="lazy"
+        ></iframe>
+        <a href={directionsHref} target="_blank" rel="noopener" class="mt-3 inline-block text-emporium-red hover:underline text-sm">Open in OpenStreetMap →</a>
+      </div>
+      <aside class="md:col-span-2 space-y-6">
+        <div>
+          <p class="text-xs uppercase tracking-widest text-ink/60">Address</p>
+          <p class="mt-1 text-lg">{address.street}</p>
+          <p class="text-lg">{address.city}, {address.state} {address.zip}</p>
+        </div>
+        <div>
+          <p class="text-xs uppercase tracking-widest text-ink/60">Phone</p>
+          <a href={`tel:${phone.replace(/[^0-9]/g, '')}`} class="mt-1 inline-block text-lg hover:text-emporium-red">{phone}</a>
+        </div>
+        <div>
+          <p class="text-xs uppercase tracking-widest text-ink/60">Email</p>
+          <a href={`mailto:${email}`} class="mt-1 inline-block text-lg hover:text-emporium-red">{email}</a>
+        </div>
+        <div>
+          <p class="text-xs uppercase tracking-widest text-ink/60">Parking</p>
+          <p class="mt-1 text-sm text-ink/80">Street parking on Main and side streets, plus a small lot behind the building.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="container-gallery pb-16">
+    <h2 class="font-display text-3xl mb-6">Hours</h2>
+    <HoursBlock />
+    <p class="mt-4 text-sm text-ink/60">We're open year-round. Holiday hours may vary — check our social before driving out.</p>
+  </section>
+
+  <section class="bg-wood text-cream py-16">
+    <div class="container-gallery grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="font-accent italic text-gold text-lg">Now hiring</p>
+        <h2 class="font-display text-3xl md:text-4xl mt-3">A first job behind the milkshake counter.</h2>
+        <p class="mt-4 text-cream/80 leading-relaxed">
+          The Emporium has given dozens of valley teenagers their first jobs. If you'd like to be next, send us a note — we'd love to meet you.
+        </p>
+      </div>
+      <div class="text-cream/90 text-sm">
+        We hire crew members year-round, with extra hands brought on for the summer rush. Drop your name and we'll be in touch.
+      </div>
+    </div>
+  </section>
+
+  <section class="container-prose py-16">
+    <h2 class="font-display text-3xl text-center mb-8">Get in touch</h2>
+    <ContactForm />
+  </section>
+</BaseLayout>

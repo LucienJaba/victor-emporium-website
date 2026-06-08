@@ -1,0 +1,43 @@
+---
+const WEB3FORMS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';
+---
+<form
+  action="https://api.web3forms.com/submit"
+  method="POST"
+  class="space-y-4"
+>
+  <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
+  <input type="hidden" name="subject" value="Victor Emporium — new message" />
+  <input type="hidden" name="from_name" value="Victor Emporium Website" />
+  <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" />
+
+  <div class="grid sm:grid-cols-2 gap-4">
+    <label class="block">
+      <span class="text-xs uppercase tracking-widest text-ink/70">Name</span>
+      <input type="text" name="name" required class="mt-1 w-full border border-ink/20 bg-cream px-3 py-2 focus:outline-none focus:border-emporium-red" />
+    </label>
+    <label class="block">
+      <span class="text-xs uppercase tracking-widest text-ink/70">Email</span>
+      <input type="email" name="email" required class="mt-1 w-full border border-ink/20 bg-cream px-3 py-2 focus:outline-none focus:border-emporium-red" />
+    </label>
+  </div>
+
+  <label class="block">
+    <span class="text-xs uppercase tracking-widest text-ink/70">Reason</span>
+    <select name="reason" required class="mt-1 w-full border border-ink/20 bg-cream px-3 py-2 focus:outline-none focus:border-emporium-red">
+      <option value="general">General</option>
+      <option value="jobs">Jobs (we'd love to meet you)</option>
+      <option value="wholesale">Wholesale or custom orders</option>
+      <option value="press">Press</option>
+    </select>
+  </label>
+
+  <label class="block">
+    <span class="text-xs uppercase tracking-widest text-ink/70">Message</span>
+    <textarea name="message" rows="5" required class="mt-1 w-full border border-ink/20 bg-cream px-3 py-2 focus:outline-none focus:border-emporium-red"></textarea>
+  </label>
+
+  <button type="submit" class="bg-emporium-red text-cream px-8 py-3 text-sm uppercase tracking-widest hover:bg-emporium-red/90 transition-colors">
+    Send message
+  </button>
+</form>

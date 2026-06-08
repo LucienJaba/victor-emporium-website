@@ -1,0 +1,19 @@
+---
+import { visit } from '../data/visit';
+const { summer, winter } = visit.hours;
+---
+<div class="grid sm:grid-cols-2 gap-8">
+  {[summer, winter].map(block => (
+    <div class="border border-ink/10 p-6">
+      <h3 class="font-display text-xl">{block.label}</h3>
+      <ul class="mt-4 space-y-2">
+        {block.days.map(d => (
+          <li class="flex justify-between text-sm">
+            <span class="text-ink/70">{d.d}</span>
+            <span class="font-medium">{d.t}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  ))}
+</div>
